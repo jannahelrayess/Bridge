@@ -1,0 +1,36 @@
+s.form-control {
+    color: #468162;
+}
+
+.btn-primary {
+    background-color: #468162;
+    font-weight: bold;
+}
+
+.blue-btn {
+    background-color: #376c79;
+    font-weight: bold;
+}
+
+.create {
+    background-color: #ffffff;
+}
+
+.btn-info {
+    background-color: #376c79;
+    font-weight: bold;
+}
+
+.grn-bg {
+    background-color: #468162;
+}
+
+.container-fluid {
+    padding: 1rem;
+}
+
+#profile-container #profile-pic {
+    height: 30rem;
+    object-fit: contain;
+    padding: 1rem;
+}

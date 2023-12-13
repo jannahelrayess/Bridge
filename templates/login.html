@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <section class="grn-bg vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <!-- Image on left half of login page -->
+                                <img src="/static/bosnia_bridge.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+                                <!-- Login form -->
+                                    <form action="/login" method="post">
+                                        <div class="d-flex align-items-center mb-3 pb-1">
+                                            <span class="h1 fw-bold mb-0">Bridge</span>
+                                        </div>
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                                            Sign into your account
+                                        </h5>
+                                    <!-- Username input -->
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="username" id="form1Example1" class="form-control" name="username" required />
+                                            <label class="form-label" for="form1Example1">
+                                                Username
+                                            </label>
+                                        </div>
+                                    <!-- Password input -->
+                                        <div data-mdb-input-init class="form-outline mb-4">
+                                            <input type="password" id="form1Example2" class="form-control" name="password" required />
+                                            <label class="form-label" for="form1Example2">
+                                                Password
+                                            </label>
+                                        </div>
+                                    <!-- Button that logs user in -->
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn btn-primary btn-lg btn-block" type="submit">
+                                                Login
+                                            </button>
+                                        </div>
+                                    <!-- Link to register an account -->
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account?<a href="/register" style="color: #393f81;"> Register here</a>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

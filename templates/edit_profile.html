@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <section class="create">
+        <div class="container py-5">
+            <form action="/edit_profile" method="post" enctype="multipart/form-data">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form6Example1" class="form-control" name="fname" value="{{ data.fname }}" required />
+                            <label class="form-label" for="form6Example1">
+                                First Name
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form6Example2" class="form-control" name="lname" value="{{ data.lname }}" required />
+                            <label class="form-label" for="form6Example2">
+                                Last Name
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="form6Example5" class="form-control" name="email" value="{{ data.email }}" required />
+                    <label class="form-label" for="form6Example5">
+                        Email
+                    </label>
+                </div>
+            <!-- Location input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="form6Example3" class="form-control" name="location" value="{{ data.location }}" />
+                    <label class="form-label" for="form6Example3">
+                        Location
+                    </label>
+                </div>
+            <!-- Socials input -->
+                <div class="row mb-4">
+                <!-- Instagram input -->
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form3Example1" class="form-control" name="instagram" value="{{ data.instagram }}" />
+                            <label class="form-label" for="form3Example1">
+                                Instagram
+                            </label>
+                        </div>
+                    </div>
+                <!-- Facebook input -->
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form3Example2" class="form-control" name="facebook" value="{{ data.facebook }}" />
+                            <label class="form-label" for="form3Example2">
+                                Facebook
+                            </label>
+                        </div>
+                    </div>
+                <!-- Linkedin input -->
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form3Example2" class="form-control" name="linkedin" value="{{ data.linkedin }}" />
+                            <label class="form-label" for="form3Example2">
+                                Linkedin
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            <!-- Bio input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="form6Example3" class="form-control" name="bio" maxlength="150" value="{{ data.bio }}" />
+                    <label class="form-label" for="form6Example3">
+                        Bio
+                    </label>
+                </div>
+            <!-- Answers input for the three questions asked -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea class="form-control" id="form6Example7" rows="4" name="question1">{{ data.answer1 }}</textarea>
+                    <label class="form-label" for="form6Example7">
+                        What is your favorite food from your country?
+                    </label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea class="form-control" id="form6Example7" rows="4" name="question2">{{ data.answer2 }}</textarea>
+                    <label class="form-label" for="form6Example7">
+                        What is a fun fact about your country?
+                    </label>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea class="form-control" id="form6Example7" rows="4" name="question3">{{ data.answer3 }}</textarea>
+                    <label class="form-label" for="form6Example7">
+                        How do you want to contribute to your country?
+                    </label>
+                </div>
+            <!-- Image input -->
+                <label class="form-label" for="customFile">
+                    Profile Image
+                </label>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="file" name="image" class="form-control" id="customFile" accept="image/png, image/jpg, image/gif, image/jpeg" required />
+                </div>
+            <!-- Button that submits form to accept the profile edits -->
+                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">
+                    Save Changes
+                </button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

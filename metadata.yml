@@ -1,0 +1,13 @@
+---
+:id: 218522454
+:submitters:
+- :name: Dorde Ivanovic
+  :email: dorde_ivanovic@college.harvard.edu
+- :name: Jannah Sabic El-Rayess
+  :email: jannahelrayess@college.harvard.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2023-12-08 00:58:08.624167000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2023-12-07 16:58:08.624167000 Z
+:status: processed

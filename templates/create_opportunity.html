@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <section class="create">
+        <div class="container py-5">
+            <form method="post" action="{{ url_for('create_opportunity') }}" enctype="multipart/form-data">
+            <!-- Opportunity title input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="form6Example3" class="form-control" name="title" required />
+                    <label class="form-label" for="form6Example3">Opportunity Title</label>
+                </div>
+            <!-- Opportunity deadline input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="date" id="form6Example3" class="form-control" name="deadline" required />
+                    <label class="form-label" for="form6Example3">Deadline</label>
+                </div>
+            <!-- Opportunity link input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="form6Example3" class="form-control" name="linked_application" required />
+                    <label class="form-label" for="form6Example3">Link</label>
+                </div>
+            <!-- Opportunity description input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea name="description" class="form-control" id="form6Example7" rows="4" required></textarea>
+                    <label class="form-label" for="form6Example7">
+                        Description
+                    </label>
+                </div>
+            <!-- Button that submits form to create opportunity -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Create Opportunity</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

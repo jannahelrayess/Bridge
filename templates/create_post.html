@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <section class="create">
+        <div class="container py-5">
+            <form method="post" action="{{ url_for('create_post') }}" enctype="multipart/form-data">
+            <!-- Post image input -->
+                <label class="form-label" for="customFile">
+                    Image
+                </label>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="file" name="image" class="form-control" id="customFile" accept="image/png, image/jpg, image/gif, image/jpeg" required />
+                </div>
+            <!-- Post description input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <textarea name="caption" class="form-control" id="form6Example7" rows="4" required></textarea>
+                    <label class="form-label" for="form6Example7">
+                        Caption
+                    </label>
+                </div>
+            <!-- Button that submits form to create post -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Post</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

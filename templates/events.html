@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<!-- Search bar -->
+    <div class="container-fluid">
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <form class="row row-cols-lg-auto g-3 align-items-center" method="post" action="{{ url_for('show_all_events') }}">
+            <!-- Button linked to the create event form -->
+                <div class="col-12">
+                    <a href="{{ url_for('create_event') }}"><button type="button" class="btn btn-info" data-mdb-ripple-init>Create Event</button></a>
+                </div>
+            <!-- Event title input -->
+                <div class="col-12">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">Event Title</span>
+                        <input type="text" name="title" class="form-control" placeholder="Enter title" aria-describedby="addon-wrapping" />
+                    </div>
+                </div>
+            <!-- Button to search based on previous input -->
+                <div class="col-12">
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- Event cards -->
+    <section class="grn-bg">
+        <div class="container py-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card per event -->
+                {% for index in range(events|length) %}
+                    {% set event = events[index] %}
+                    <div class="col">
+                        <div class="card h-100">
+                    <!-- Event information -->
+                            <div class="card-body">
+                                <h5 class="card-title">{{ event.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Date: {{ event.date }}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Location: {{ event.location }}</h6>
+                                <p class="card-text">{{ event.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+{% endblock %}

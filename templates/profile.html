@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <section class="grn-bg">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                <!-- Box that displays user's main profile data -->
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="{{ data.image_url }}" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">
+                                {{ data.fname }} {{ data.lname }}
+                            </h5>
+                            <p class="text-muted mb-1">
+                                @{{ data.username }}
+                            </p>
+                            <p class="text-muted mb-1">
+                                {{ data.country }}
+                            </p>
+                            <p class="text-muted mb-4">
+                                {{ data.college }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-lg-0">
+                    <!-- Box that displays user's socials -->
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush rounded-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <img src="/static/insta.jpg" height="25" />
+                                    <p class="mb-0">
+                                        {{ data.instagram }}
+                                    </p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <img src="/static/facebook.jpg" height="25" />
+                                    <p class="mb-0">
+                                        {{ data.facebook }}
+                                    </p>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <img src="/static/linkedin.jpg" height="25" />
+                                    <p class="mb-0">
+                                        {{ data.linkedin }}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                    <!-- Box that displays user's main information -->
+                        <div class="card-body">
+                            <div class="row">
+                            <!-- User's email -->
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ data.email }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <!-- User's current location -->
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Location</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ data.location }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <!-- User's bio -->
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Bio</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ data.bio }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                        <!-- The user's answers to the three given questions -->
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">What is your favorite food from your country?</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ data.answer1 }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">What is a fun fact about your country?</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ data.answer2 }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">How do you want to contribute to your country?</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ data.answer3 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- If the profile is their own, the user can edit the profile -->
+                    {% if edit %}
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a style="color: #468162; font-weight: bold;" href="/edit_profile">Edit Profile</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

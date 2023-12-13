@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<!-- Search bar -->
+    <div class="container-fluid" style="padding: 1rem;">
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <form class="row row-cols-lg-auto g-3 align-items-center" method="post" action="{{ url_for('show_all_opportunities') }}">
+            <!-- Button linked to the create opportunity form -->
+                <div class="col-12">
+                    <a href="{{ url_for('create_opportunity') }}"><button type="button" class="btn btn-info" data-mdb-ripple-init>Create Opportunity</button></a>
+                </div>
+            <!-- Opportunity title input -->
+                <div class="col-12">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">Opportunity Title</span>
+                        <input type="text" name="title" class="form-control" placeholder="Enter title" aria-describedby="addon-wrapping" />
+                    </div>
+                </div>
+            <!-- Button to search based on previous input -->
+                <div class="col-12">
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- Opportunity cards -->
+    <section class="grn-bg">
+        <div class="container py-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card per opportunity -->
+                {% for index in range(opportunities|length) %}
+                    {% set opportunity = opportunities[index] %}
+                    <div class="col">
+                        <div class="card h-100">
+                    <!-- Opportunity information -->
+                            <div class="card-body">
+                                <h5 class="card-title">{{ opportunity.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Deadline: {{ opportunity.deadline }}</h6>
+                                <p class="card-text">{{ opportunity.description }}</p>
+                                <a href="{{ opportunity.linked_application }}" class="card-link">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

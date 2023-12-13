@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<!-- Search bar -->
+    <div class="container-fluid">
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <form class="row row-cols-lg-auto g-3 align-items-center" method="post" action="{{ url_for('connect') }}">
+            <!-- Username input -->
+                <div class="col-12">
+                    <label class="visually-hidden" for="inlineFormInputGroupUsername">
+                        Username
+                    </label>
+                    <div class="input-group">
+                        <div class="input-group-text">
+                            @
+                        </div>
+                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="username" placeholder="Username" />
+                    </div>
+                </div>
+            <!-- Select college -->
+                <div class="col-12">
+                    <select class="form-select" id="floatingSelectGrid" name="college">
+                        <option value="" selected>
+                            All Colleges
+                        </option>
+                        {% for college in colleges %}
+                            <option value="{{ college.id }}">
+                                {{ college.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            <!-- Select country -->
+                <div class="col-12">
+                    <select class="form-select" id="floatingSelectGrid" name="country">
+                        <option value="" selected>
+                            All Countries
+                        </option>
+                        {% for country in countries %}
+                            <option value="{{ country.id }}">
+                                {{ country.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            <!-- Button to search based on previous inputs and selections -->
+                <div class="col-12">
+                    <button data-mdb-ripple-init type="submit" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- Instructions -->
+    <p style="color: #468162; text-align: center; font-weight: bold;">
+        Click the @username to expand the profile.
+    </p>
+<!-- User profile cards -->
+    <section class="grn-bg">
+        <div class="container py-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card per person -->
+                {% for person in people %}
+                    <form action="/user_profile" method="post">
+                        <div class="col">
+                            <div class="card h-100" style="background-color: #74b08a;">
+                        <!-- Profile picture -->
+                                <div class="container" id="profile-container">
+                                    <img src="{{ person.image_url }}" class="card-img-top" id="profile-pic" alt="Hollywood Sign on The Hill" />
+                                </div>
+                                <div class="card-body" style="background-color: white;">
+                            <!-- First and last name -->
+                                    <h5 class="card-title">
+                                        {{ person.fname }} {{ person.lname }}
+                                    </h5>
+                            <!-- Button with username that leads to complete profile -->
+                                    <button data-mdb-ripple-init name="user_id" type="submit" value="{{ person.id }}" class="blue-btn btn btn-primary">
+                                        @{{ person.username }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
