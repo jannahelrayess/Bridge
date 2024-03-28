@@ -76,4 +76,4 @@ We hope you find Bridge to be an engaging platform that successfully connects yo
 
 Enjoy exploring Bridge!
 
-Bridge Team
+Jannah & Djordje
